@@ -1,0 +1,88 @@
+% Diseño de los encabezados y pies de página
+\fancypagestyle{fancy}{%
+    \xpretocmd\headrule{\color{emphcolor}}{}{\PatchFailed}% Cambio de color de la regla en el encabezado
+    
+    \fancyhf{}
+    \fancyhead[le]{%
+    	\begin{tabular}{@{} R{4ex} @{\ } R{\widthof{\small\shortinstitute\ }}}
+    		\includegraphics[width=4ex]{fcunam}% Escudo de la instittución
+    		& \small\shortinstitute
+    	\end{tabular}
+    }
+    \fancyhead[re]{%
+    	\small\textit{\subject}% Nombre de la asignatura
+    }
+    
+    \fancyhead[co]{%
+        \begin{tabular}{@{} R{4ex} R{\widthof{\small\subtitle\ }} R{4ex} @{}}
+            \phantom{\includegraphics[width=4ex]{fcunam}} & \small\textit{\subtitle} & \phantom{\includegraphics[width=4ex]{fcunam}}
+        \end{tabular}
+    }
+    
+    \fancyfoot[c]{%
+    	\begin{tabular}{M{1em} @{} M{2em} @{} M{1em}}
+    		\textcolor{emphcolor}{$\boldsymbol{-}$}
+    		& \thepage &
+    		\textcolor{emphcolor}{$\boldsymbol{-}$}
+    	\end{tabular}
+    }
+}
+
+% Comandos para ingresar keywords en el abstract
+\newcommand{\espkeywords}{\noindent\textit{Palabras clave:\ }}
+\newcommand{\engkeywords}{\noindent\textit{Keywords:\ }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% DATOS DE LA PORTADA %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Alencaste Desachy David Antonio}
+
+\title{Proyecto Final}%%%%%%% PRACTICA %%%%%%%%%%
+\newcommand{\subtitle}%%%%%%% TITULO %%%%%%%%%%
+	{Efecto Seebeck para distintas longitudes de un alambre conductor}
+    
+\date{\today}
+
+\newcommand{\subject}%%%%%%% MATERIA %%%%%%%%%%
+	{Laboratorio de Física Contemporánea II}
+
+\newcommand{\maininstitute}%%%%%%%% INSTITUTO %%%%%%%%%%
+	{Facultad de Ciencias - Física }
+
+\newcommand{\secinstitute}%%%%%%%% UNIVERSIDAD %%%%%%%%%%
+	{Universidad Nacional Autónoma de México}
+	
+\makeatletter 
+	\renewcommand\maketitle{%
+		\thispagestyle{plain}
+		\begin{center}
+    		\begin{tabular}{@{} M{.175\textwidth} @{} M{.65\textwidth} @{} M{.175\textwidth} @{}}
+    		    \includegraphics[width=.14\textwidth]{unam} & \Large\textcolor{emphcolor}{\textbf{\@title}} \par \huge\textbf{\subtitle} & \includegraphics[width=.14\textwidth]{fcunam}
+    		\end{tabular}
+			
+			\bigskip
+			
+			\normalsize
+            \begin{center}
+			\begin{tabular}{@{}c@{\qquad}c@{\qquad}c@{}}
+				David Antonio Alencaste Desachy\\
+				{\footnotesize\href{mailto:dalencaste@ciencias.unam.mx}{\color{emphcolor}\texttt{dalencaste@ciencias.unam.mx}}} 
+                
+			\end{tabular}
+            \end{center}
+            
+                Profesor Asesor:\\ Dra. Beatriz Elizabeth Fuentes Madariaga\\
+			
+			\bigskip
+			\subject\\
+			\maininstitute\\
+			\secinstitute
+			
+			\medskip
+			
+			\textit{\today}
+		\end{center}
+	}
+ \makeatother
+

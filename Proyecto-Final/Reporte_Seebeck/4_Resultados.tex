@@ -1,0 +1,104 @@
+\section{Resultados y Discusión}
+
+Se presentan dos subconjuntos de los datos obtenidos, ya que cada uno aporta información relevante que conviene analizar por separado.
+
+En primer lugar, se muestran todos los valores registrados durante el experimento, es decir, tanto en la etapa donde la temperatura aumentó como en aquella donde disminuyó mediante el ventilador. En esta parte no se tomaron mediciones de tiempo, de modo que en las siguientes gráficas el eje de las abscisas representa únicamente el número de dato registrado. El objetivo principal aquí es observar el comportamiento del voltaje conforme la temperatura se modifica con el tiempo.
+
+En todas las gráficas aparece una línea roja vertical punteada, la cual indica el punto a partir del cual la temperatura dejó de incrementarse y comenzó a descender debido al ventilador.
+
+\begin{center}
+\begin{minipage}{0.95\columnwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[width=.9\linewidth]{Imágenes/all_10.png}
+    \caption{Datos experimentales $V$ vs. número de dato para un alambre de Cobre de 10\,cm. Se observa un voltaje atípicamente alto en el dato 63.}
+\end{minipage}
+\end{center}
+
+\begin{center}
+\begin{minipage}{0.95\columnwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[width=.9\linewidth]{Imágenes/all_15.png}
+    \caption{Datos experimentales $V$ vs. número de dato para un alambre de Cobre de 15\,cm. Se aprecia un aumento de voltaje inmediatamente después de iniciar el enfriamiento.}
+\end{minipage}
+\end{center}
+
+\begin{center}
+\begin{minipage}{0.95\columnwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[width=.9\linewidth]{Imágenes/al_20.png}
+    \caption{Datos experimentales $V$ vs. número de dato para un alambre de Cobre de 20\,cm. Se observa un incremento de voltaje previo al enfriamiento, así como un comportamiento aproximadamente lineal similar al de los datos iniciales.}
+\end{minipage}
+\end{center}
+
+\begin{center}
+\begin{minipage}{0.95\columnwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[width=.9\linewidth]{Imágenes/al_25.png}
+    \caption{Datos experimentales $V$ vs. número de dato para un alambre de Cobre de 25\,cm. También se observa un aumento de voltaje antes del inicio del enfriamiento.}
+\end{minipage}
+\end{center}
+
+En todas las muestras se presenta un comportamiento común: conforme la temperatura aumenta, el voltaje alcanza un máximo, pero al seguir incrementándose la temperatura el voltaje ya no aumenta como se esperaría para un coeficiente $S$ constante (Ecuación \ref{eq: coef-constante}). En lugar de ello, disminuye hasta cierto punto y posteriormente vuelve a incrementarse, especialmente cuando la temperatura empieza a descender.
+
+Atribuimos este comportamiento a una característica propia de los conductores: su conductividad disminuye conforme aumenta la temperatura. Esto provoca que los portadores de carga experimenten una mayor resistencia al movimiento, lo que reduce su eficiencia de transporte y, en consecuencia, disminuye el voltaje inducido. 
+
+Cuando la temperatura comienza a descender, la conductividad aumenta nuevamente, facilitando el movimiento de los portadores y elevando el número efectivo de estos en cada extremo del conductor. Esto explica el incremento de voltaje observado durante la etapa de enfriamiento.
+
+
+Los datos correspondientes a temperaturas más bajas no se registraron por falta de tiempo; sin embargo, cualitativamente en todas las muestras se observó primero un aumento y luego una disminución del voltaje hasta llegar a $0\,\text{V}$.
+
+A continuación se muestran las gráficas de $V$ vs. $T$ utilizando únicamente la región donde el voltaje presenta un comportamiento creciente. Los datos posteriores no se incluyen aquí, ya que el propósito de esta sección es analizar el coeficiente de Seebeck $S$ como función de la temperatura y no del tiempo.
+
+\begin{center}
+\begin{minipage}{0.95\columnwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[width=.9\linewidth]{Imágenes/regres_10.png}
+    \caption{Gráfica experimental $V$ vs. $T$ para un alambre de Cobre de 10\,cm. El ajuste lineal antes de $40^\circ\text{C}$ presenta un coeficiente $R^2=0.95$.}
+\end{minipage}
+\end{center}
+
+\begin{center}
+\begin{minipage}{0.95\columnwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[width=.9\linewidth]{Imágenes/regres_15.png}
+    \caption{Gráfica experimental $V$ vs. $T$ para un alambre de Cobre de 15\,cm. El ajuste lineal antes de $40^\circ\text{C}$ arroja un coeficiente $R^2=0.89$.}
+\end{minipage}
+\end{center}
+
+\begin{center}
+\begin{minipage}{0.95\columnwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[width=.9\linewidth]{Imágenes/regres_20.png}
+    \caption{Gráfica experimental $V$ vs. $T$ para un alambre de Cobre de 20\,cm. El ajuste lineal antes de $40^\circ\text{C}$ presenta un coeficiente $R^2=0.92$.}
+\end{minipage}
+\end{center}
+
+\begin{center}
+\begin{minipage}{0.95\columnwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[width=.9\linewidth]{Imágenes/regres_25.png}
+    \caption{Gráfica experimental $V$ vs. $T$ para un alambre de Cobre de 25\,cm. El ajuste lineal antes de $65^\circ\text{C}$ arroja un coeficiente $R^2=0.91$.}
+\end{minipage}
+\end{center}
+
+Las temperaturas utilizadas para realizar las regresiones lineales se eligieron de modo que el valor de $R^2$ se maximizara, pues justamente en ese intervalo la relación entre $V$ y $T$ se aproxima más a la linealidad, es decir, es la región donde el coeficiente de Seebeck puede considerarse aproximadamente constante.
+
+Finalmente, en la Figura \ref{Fig: coef} se muestran los valores obtenidos del coeficiente de Seebeck para cada muestra. No se aprecia una relación clara entre los valores obtenidos y la longitud del alambre, por lo que sería necesario realizar un mayor número de mediciones para obtener un análisis más robusto.
+
+\begin{center}
+\begin{minipage}{0.95\columnwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[width=.9\linewidth]{Imágenes/coef_S.png}
+    \caption{Coeficientes de Seebeck obtenidos para las distintas longitudes del alambre de Cobre. No se identifica una tendencia evidente.}
+    \label{Fig: coef}
+\end{minipage}
+\end{center}

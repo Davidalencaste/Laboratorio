@@ -1,0 +1,227 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                                                      %%% 
+%%%                Alencaste Desachy David Antonio              %%%
+%%%       Universidad Nacional Autónoma de México        %%%
+%%%                          2025                        %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DEFINITIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, spanish, mexico, es-noitemize, es-noindentfirst]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DOCUMENT FORMAT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{microtype} %improves the spacing between words and letters
+\usepackage{hyperref}
+\usepackage{imakeidx}         % allows index generation
+\usepackage{tgbonum}        %  LaTeX will use Bonum font family
+\usepackage{multicol}       % Make Two-Column Text
+\usepackage{ragged2e}    
+%\usepackage{natbib}% Alinea el texto     % Modifica el comportamiento de \include{}
+\usepackage{lipsum}         % Texto de prueba
+\urlstyle{same}
+\usepackage{microtype}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LANGUAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[english]{babel}
+\usepackage[spanish]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MATH TOOLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath, amssymb, amsfonts, amsthm, fouriernc, mathtools}
+\usepackage[nolimits]{cmupint}% Integrales rectas
+\usepackage{siunitx}% Unidades del SI
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% COLOR DEFINITIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[svgnames]{xcolor} % Enabling mixing colors and color's call by 'svgnames'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\textb}{\color{Black} \usefont{OT1}{lmss}{m}{n}}
+\newcommand{\black}{\color{black} \usefont{OT1}{lmss}{m}{n}}
+\newcommand{\blackb}{\color{black} \usefont{OT1}{lmss}{b}{n}}
+\newcommand{\blacks}{\color{black} \usefont{OT1}{qhv}{m}{n}}
+\newcommand{\red}{\color{LightCoral} \usefont{OT1}{lmss}{m}{n}}
+\newcommand{\green}{\color{Turquoise} \usefont{OT1}{lmss}{m}{n}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  Configuración del documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[margin=0.75in, headheight=2\baselineskip, headsep=\baselineskip]{geometry}
+\usepackage{fancyhdr}
+\usepackage[shortlabels, inline]{enumitem}
+\usepackage{multicol, array, multirow}
+\usepackage{titlesec, apptools}
+\usepackage[titles]{tocloft}
+
+\pagestyle{fancy}
+\lhead{Laboratorio de Física Contemporánea II}
+\rhead{Facultad de Ciencias, UNAM}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Gráficos
+\usepackage{graphicx, booktabs, threeparttable, wrapfig, pdfpages, pdflscape}
+\usepackage{pgfplots}
+\usepackage[auto]{contour}
+\usepackage[labelfont=bf, labelsep=period, margin=.05\columnwidth, font=small]{caption}
+\usepackage{subcaption}
+\graphicspath{{imágenes/}{escudos/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%            BIBLIOGRAFIA          %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[backend=biber]{biblatex}
+\usepackage{csquotes}
+\addbibresource{Bibliografias/Books.bib}
+\addbibresource{Bibliografias/Articles.bib}
+\addbibresource{Bibliografias/Urls.bib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Versión de PGFplots
+\pgfplotsset{compat=newest}
+
+
+
+% Todos los enlaces del documento en negro
+\hypersetup{allcolors=black}
+
+% Listas personalizadas
+\setlist[enumerate, 1]{%
+	label={\textbf{\color{emphcolor}\arabic*.}},
+	ref=\textbf{\arabic*}
+}
+\setlist[enumerate, 2]{%
+	label={\textbf{\color{emphcolor}(\alph*)}},
+	ref=\textbf{(\alph*)}
+}
+\setlist[enumerate, 3]{%
+	label={\color{emphcolor}\roman*.},
+	ref=\roman*
+}
+
+\setlist[itemize, 1]{%
+	label={\color{emphcolor}\textbullet},
+}
+\setlist[itemize, 2]{%
+	label={\color{emphcolor}--},
+}
+\setlist[itemize, 3]{%
+	label={\color{emphcolor}*},
+}
+
+% Redefinición de "y otros" en la bibliografía
+\DefineBibliographyStrings{spanish}{andothers={et~al\adddot}}
+
+% Notas de tablas en tamaño footnote
+\appto\TPTnoteSettings{\footnotesize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%  COMANDOS MATEMATICOS ADICIONALES %%%%%%%%%%%%%%%
+\newcommand{\bfvec}[1]{\vec{\textbf{#1}}}
+\newcommand{\pqty}[1]{\left( #1 \right)}
+\newcommand{\bqty}[1]{\left[ #1 \right]}
+\newcommand{\Bqty}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lvert\left\lvert #1 \right\rvert\right\rvert}
+\newcommand{\rtwovec}[2]{% Vectores columna en R^2 
+	\begin{bmatrix*}[r]#1 \\ #2 
+	\end{bmatrix*}}
+\newcommand{\rthreevec}[3]{% Vectores columna en R^3
+	\begin{bmatrix*}[r]
+		#1 \\ #2 \\ #3
+	\end{bmatrix*}}
+\newcommand{\bvec}[1]{% Vectores
+	\mathbf{#1}}
+\newcommand{\uvec}[1]{% Vectores unitarios (con gorrito)
+	\textbf{\^{#1}}}
+\newenvironment{amatrix}[2]{% Matices aumentadas
+	\left[\begin{array}{@{}*{#1}{r}|*{#2}{r}@{}}
+	}%
+	{
+	\end{array}\right]}
+\DeclareMathOperator{\mcd}{mcd}% Máximo común divisor
+\DeclareMathOperator{\midd}{med}% Número medio
+
+% Descomentar esta línea si se elige fouriernc para la fuente matemática y emplear en vez de \nabla
+%\newcommand{\Nabla}{\scalebox{1.075}{$\nabla$}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%555
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Colores
+\definecolor{emphcolor}{HTML}{003D64}% Color de énfasis
+\definecolor{auxcolor}{HTML}{E8442A}% Color auxiliar
+
+% Diseño de títulos de sección
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\thesection.}{1em}{\color{black}}
+
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{\thesubsection.}{1em}{\color{black}}
+
+\titleformat{\subsubsection}
+{\normalsize\bfseries}{\thetitle.}{\widthof{\enspace}}{\normalsize\color{emphcolor}}
+
+\AtAppendix{%
+    \titleformat{\section}[block]
+    {\normalfont\Large\bfseries}{\appendixname\ \thesection.}{1em}{\color{emphcolor}}
+}
+
+% Tipos de columna útiles
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{R}[1]{>{\arraybackslash}m{#1}}
+
+% Rediseño del estilo plain
+\fancypagestyle{plain}{%
+	\renewcommand{\headrulewidth}{0pt}
+	
+	\fancyhf{}
+	\fancyfoot[c]{%
+    	\begin{tabular}{M{1em}@{}M{2em}@{}M{1em}}
+    		\textcolor{emphcolor}{$\boldsymbol{-}$}
+    		& \thepage &
+    		\textcolor{emphcolor}{$\boldsymbol{-}$}
+    	\end{tabular}
+    }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%                   PORTADA                      %%%%%%%%%   '
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\input{0.1_Portada}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                  DOCUMENTO                   %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document} 
+    \maketitle
+    \input{1_Abstract}
+    \begin{multicols*}{2}
+    \input{2_Introduccion} 
+    \input{2.1_Objetivos}
+    \input{2.2_Hipotesis}
+    \input{3_Desarrollo experimental}
+    \input{4_Resultados}
+    \input{6_Conclusion}
+    \input{6.1_agradecimientos}
+    \input{bibliography}
+    \input{Apendices}
+    \nocite{*}
+    \end{multicols*}
+    \clearpage
+    %\input{Apendices}
+   
+\end{document}

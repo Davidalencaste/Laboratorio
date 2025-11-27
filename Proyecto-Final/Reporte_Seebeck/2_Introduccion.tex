@@ -1,0 +1,50 @@
+\section{Introducción}
+
+En 1821, Thomas Johann Seebeck descubrió un fenómeno nuevo en los conductores al ser expuestos a un gradiente de temperatura.\footnote{Aunque a veces se menciona a Volta en la historia de la termoeléctrica, el descubrimiento formal del efecto corresponde a Seebeck.} \\ 
+Encontró que, a partir de una diferencia de temperatura en un conductor, se genera una diferencia de potencial eléctrico, cuantificada mediante el \textit{coeficiente de Seebeck}. \\
+
+El efecto Seebeck consiste en la generación de un movimiento neto de portadores de carga (en conductores y semiconductores) debido a un gradiente de temperatura, permitiendo la conversión de energía térmica en energía eléctrica. \\ 
+Bajo la acción de dicho gradiente, los huecos en un material tipo p se difunden hacia el material tipo n, mientras que los electrones del material tipo n se difunden hacia el material tipo p, generando así una fuerza electromotriz. \cite{Adresi2023}\\
+
+El campo eléctrico asociado a esta fuerza viene dado por la Ecuación~\ref{eq: campo-electrico}:
+\begin{equation}
+    E = S \cdot \nabla T
+    \label{eq: campo-electrico}
+\end{equation}
+donde $S$ es el \textit{coeficiente de Seebeck}. \\
+
+A partir de esta relación se obtiene:
+\[
+\Delta \phi = -\int E \cdot dl = \int_{T_1}^{T_2} (S_A(T) - S_B(T))\, dT
+\]
+
+\begin{equation}
+    V = \int_{T_1}^{T_2} (S_A(T) - S_B(T))\, dT
+\end{equation}
+
+\textit{Suponiendo que $S$ es constante:}
+\begin{equation}
+    \frac{V}{\Delta T} = (S_A - S_B)
+    \label{eq: coef-constante}
+\end{equation}
+
+
+\begin{minipage}{\columnwidth}
+    \centering
+    \captionsetup{type=figure}
+    \includegraphics[width=1.\columnwidth]{Imágenes/diagrama_zeebeck.png}
+    \caption{Diagrama del efecto Zeebeck. Del lado izquierdo, de mayor temperatura hay portadores con energía mayor que se escapan al lado de menor temperatura.\\Figura obtenida de \cite{Adresi2023}}
+    \label{Fig: EsquemaPlacas}
+\end{minipage}
+
+\vspace{.5cm}
+
+En general, sin embargo, se tiene que $S = S(T)$, es decir, depende de la temperatura. \\
+
+En el artículo \cite{Sun2015LargeSeebeck} se demuestra que un gradiente fuerte en la movilidad de los portadores de carga con la temperatura genera un aporte adicional al efecto Seebeck, el cual puede ser dominante frente a otras contribuciones. Como resultado, el coeficiente total de Seebeck puede escribirse como:
+
+\begin{equation}
+    S = S_N + S_t
+\end{equation}
+
+donde $S_N$ es la contribución convencional y $S_t$ es la contribución asociada al cambio de movilidad con la temperatura.
